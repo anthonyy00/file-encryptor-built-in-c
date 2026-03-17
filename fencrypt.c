@@ -29,14 +29,14 @@ void encrypt(const char *filename, const char *efile)
   char buffer[BUFFER];
 
   int file = open(filename, O_RDONLY);
-  int encrypted_file = open(efile, O_CREAT | O_RDONLY | O_WRONLY | S_IRWXU);
+  int encrypted_file = open(efile, O_CREAT | O_WRONLY | O_TRUNC, 0644);
     
   while((bytes = read(file, buffer, sizeof(buffer))) > 0)
   {
 
     for(int i = 0; i < bytes; i++)
     {
-      bytes++;
+      buffer[i] = buffer[i]^0xAA;
     }
     write(encrypted_file, buffer, bytes);
   }
