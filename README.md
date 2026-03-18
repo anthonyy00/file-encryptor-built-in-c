@@ -1,4 +1,4 @@
-################# file encryptor using c #################
+                                            file encryptor using c 
 
 
 file encryptor in c using low level system calls
@@ -21,4 +21,4 @@ goals:
 
 bye
 
-############################################################
+
