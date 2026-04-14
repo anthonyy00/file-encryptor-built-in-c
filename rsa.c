@@ -1,4 +1,5 @@
 #include "rsa.h"
+#define BUFFER 1060
 
 long long power(long long base, long long expo, long long mod) {
     long long res = 1;
@@ -14,25 +15,29 @@ long long power(long long base, long long expo, long long mod) {
     return res;
 }
 
-
-long long rsa_encrypt(long long p, long long q, char * text)
+void file_handle(long long p, long long q,const char *filename, const char *encrypted_file)
 {
+
   long long n = p * q;
   long long e = 17;
 
-  for (int i = 0; i < text[i] != '\0'; i++)
+  int byte;
+
+  int file = open(filename, O_RDONLY);
+  int e_file = open(encrypted_file, O_CREAT | O_WRONLY | O_TRUNC, 0644);
+  char buffer [BUFFER];
+
+
+  while((byte = read(file, buffer, sizeof(buffer))) > 0)
   {
-    text[i] = power(text[i], e, n);
+    for (int i = 0; i < byte; i++)
+    {
+      buffer[i] = power(buffer[i], e, n);
+    }
+    write(e_file, buffer, byte);
   }
 
-
-}
-
-void file_handle(const char *filename, const char *e_file)
-{
-  int file = open(filename, O_RDONLY);
-  int e_file = open(efile, O_CREAT | O_WRONLY | O_TRUNC, 0644);
-  
-
+close(file);
+close(e_file);
    
 }

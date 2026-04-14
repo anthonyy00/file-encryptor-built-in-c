@@ -28,7 +28,7 @@ else
     {
     long long p = atoll(argv[2]); // converts a string to a long long int value 
     long long q = atoll(argv[3]);
-    rsa_encrypt(p, q, argv[4]);
+    file_handle(p, q, argv[4], argv[5]);
     }
   }
 

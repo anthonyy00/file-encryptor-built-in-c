@@ -5,6 +5,7 @@
 #include <fcntl.h>
 
 long long power(long long base, long long exp, long long mod);
-long long rsa_encrypt(long long p, long long q, char* text);
+void file_handle(long long p, long long q, const char* filename, const char* e_file);
+
 
 #endif
