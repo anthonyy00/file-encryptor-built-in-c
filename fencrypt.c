@@ -1,28 +1,37 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include "rsa.h"
 
 #define BUFFER 1024
 
-void encrypt(const char *filename, const char *efile);
+void xor(const char *filename, const char *efile);
 
 int main(int argc, char *argv[])
 {
 
 if (argc < 3)
   {
-    printf("usage: %s <file> <encrypted_file_name>\n", argv[0]);
+    printf("usage: %s <method> <file> <encrypted_file_name>\n", argv[0]);
     return 1;
   }
 
+if(argv[1] = "xor")
+xor(argv[2], argv[3]);
 
-encrypt(argv[1], argv[2]);
+if(argv[1] = "rsa"){
+if(argc < 5)
+      printf("rsa usage: %s rsa <prime number> <prime number> <file> <encrypted_file_name>\n", argv[0]);
+else
+    rsa_encrypt(argv[2], argv[3], argv[4]);
+
+  }
 
 return 0;
 
 }
 
-void encrypt(const char *filename, const char *efile)
+void xor(const char *filename, const char *efile)
 {
   
   ssize_t bytes;
@@ -42,8 +51,9 @@ void encrypt(const char *filename, const char *efile)
   }
 
 
-// write(efile, buffer, bytes);
 
 close(file);
 close(encrypted_file);
 }
+
+
