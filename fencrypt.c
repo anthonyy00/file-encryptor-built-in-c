@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 #include "rsa.h"
 
 #define BUFFER 1024
@@ -16,15 +18,18 @@ if (argc < 3)
     return 1;
   }
 
-if(argv[1] = "xor")
+if(strcmp(argv[1], "xor") == 0)
 xor(argv[2], argv[3]);
 
-if(argv[1] = "rsa"){
+if(strcmp(argv[1],"rsa") == 0){
 if(argc < 5)
       printf("rsa usage: %s rsa <prime number> <prime number> <file> <encrypted_file_name>\n", argv[0]);
 else
-    rsa_encrypt(argv[2], argv[3], argv[4]);
-
+    {
+    long long p = atoll(argv[2]); // converts a string to a long long int value 
+    long long q = atoll(argv[3]);
+    rsa_encrypt(p, q, argv[4]);
+    }
   }
 
 return 0;
