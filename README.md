@@ -1,4 +1,5 @@
-                                            file encryptor using c 
+ 
+    file encryptor using c 
 
 
 file encryptor in c using low level system calls
@@ -17,13 +18,13 @@ features & notes:
 
 purpose: 
 
-develop deeper understanding of file i/o
+- develop deeper understanding of file i/o
 
-explore encryption
+- explore encryption methods
 
-improve proffiency in c without the use of ai
+- improve proffiency in c without the use of ai
 
-tie in low level concepts across operating systems (winapi)
+- tie in low level concepts across operating systems (winapi)
 
 
 
